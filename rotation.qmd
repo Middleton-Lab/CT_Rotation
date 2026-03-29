@@ -185,17 +185,25 @@ Plot the transformed landmark positions to confirm alignment.
 
 ```{python}
 from plotnine import (
-    ggplot, aes, geom_point, geom_segment, geom_text,
-    labs, theme_minimal, coord_fixed
+    ggplot,
+    aes,
+    geom_point,
+    geom_segment,
+    geom_text,
+    labs,
+    theme_minimal,
+    coord_fixed,
 )
 
 # Build a dataframe of transformed landmarks
-landmarks_df = pd.DataFrame({
-    "label": ["L", "R", "Ant", "Origin"],
-    "x": [L_new[0], R_new[0], Ant_new[0], 0],
-    "y": [L_new[1], R_new[1], Ant_new[1], 0],
-    "z": [L_new[2], R_new[2], Ant_new[2], 0],
-})
+landmarks_df = pd.DataFrame(
+    {
+        "label": ["L", "R", "Ant", "Origin"],
+        "x": [L_new[0], R_new[0], Ant_new[0], 0],
+        "y": [L_new[1], R_new[1], Ant_new[1], 0],
+        "z": [L_new[2], R_new[2], Ant_new[2], 0],
+    }
+)
 
 # XY plane view (top-down, looking along Z)
 print(landmarks_df[["label", "x", "y", "z"]].to_string(index=False))
@@ -204,8 +212,14 @@ print(landmarks_df[["label", "x", "y", "z"]].to_string(index=False))
     ggplot(landmarks_df, aes(x="x", y="y", label="label"))
     + geom_point(size=4)
     + geom_text(nudge_y=0.3)
-    + geom_segment(aes(x=0, y=0, xend="x", yend="y"), linetype="dashed", alpha=0.5)
-    + labs(title="Transformed Landmarks (XY Plane)", x="X (Anterior)", y="Y (Lateral)")
+    + geom_segment(
+        aes(x=0, y=0, xend="x", yend="y"), linetype="dashed", alpha=0.5
+    )
+    + labs(
+        title="Transformed Landmarks (XY Plane)",
+        x="X (Anterior)",
+        y="Y (Lateral)",
+    )
     + theme_minimal()
     + coord_fixed()
 )
