@@ -1,0 +1,9 @@
+line-length = 78
+target-version = "py39"
+extend-exclude = ["*.qmd"]
+
+[lint]
+select = ["E", "F", "W", "I"]
+
+[format]
+quote-style = "double"
