@@ -5,6 +5,20 @@
     }
   ],
   "settings": {
-    "cSpell.words": ["fcsv", "venv"]
+    "cSpell.words": [
+      "arccos",
+      "arctan",
+      "dataframe",
+      "fcsv",
+      "linalg",
+      "linetype",
+      "pathlib",
+      "rotvec",
+      "scipy",
+      "startswith",
+      "venv",
+      "xend",
+      "yend"
+    ]
   }
 }
